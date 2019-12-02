@@ -11,27 +11,27 @@ bash: vue: command not found
 找到你安装的vue的目录：D:\soft\nodejs\node_global  
 把地址加入到系统变量path中  
 
-Windows-如何打开环境变量管理界面  
-方法一：命令行法#
-第一步：WIN+R，打开运行窗口。输入sysdm.cpl，回车。#
-第二步：切换到“高级”页签，点击环境变量，即可进入环境变量管理界面。#
-安装vue：npm install -g @vue/cli
-开发步骤：
+Windows-如何打开环境变量管理界面    
+方法一：命令行法#  
+第一步：WIN+R，打开运行窗口。输入sysdm.cpl，回车。#  
+第二步：切换到“高级”页签，点击环境变量，即可进入环境变量管理界面。#  
+安装vue：npm install -g @vue/cli  
+开发步骤：  
 
-1.在cmd下运行以下命令创建项目
-    vue create vue-sell-cube
+1.在cmd下运行以下命令创建项目  
+    vue create vue-sell-cube  
 
-2.选择配置方式
-    说明：
-    default (babel, eslint) ：默认配置
-    Manually select features： 手动选择配置
-    这里选择 Manually select features
-    问题：win10下选择按键必须在cmd命令下才起作用，在git下不起作用，https://www.cnblogs.com/Jimc/p/10278254.html
+2.选择配置方式  
+    说明：  
+    default (babel, eslint) ：默认配置  
+    Manually select features： 手动选择配置  
+    这里选择 Manually select features  
+    问题：win10下选择按键必须在cmd命令下才起作用，在git下不起作用，https://www.cnblogs.com/Jimc/p/10278254.html  
 
-3.手动选择项目需要的特性
-    使用上下箭头按键选择，然后按空格键即可
-    说明：
-    Babel： Babel编译（选择）
+3.手动选择项目需要的特性  
+    使用上下箭头按键选择，然后按空格键即可  
+    说明：  
+    Babel： Babel编译（选择）  
     TypeScript：TypeScript支持
     Progressive Web App (PWA) Support： PWA支持
     Router： Vue路由
