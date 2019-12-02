@@ -2,6 +2,9 @@
 Vue.js2.5+cube-ui重构饿了么App（经典再升级）  
 # vue-sell-cube  
 Vue.js2.5+cube-ui重构饿了么App（经典再升级）  
+
+添加两个空格即可以换行哦
+	
 1.问题：  
 $ vue --version  
 bash: vue: command not found  
