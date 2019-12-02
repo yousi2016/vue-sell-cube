@@ -1,17 +1,17 @@
 # vue-sell-cube
-Vue.js2.5+cube-ui重构饿了么App（经典再升级）
-# vue-sell-cube
-Vue.js2.5+cube-ui重构饿了么App（经典再升级）
-1.问题：
-$ vue --version
-bash: vue: command not found
-原因：环境变量没有进行配置，所以会出现这个问题
+Vue.js2.5+cube-ui重构饿了么App（经典再升级）  
+# vue-sell-cube  
+Vue.js2.5+cube-ui重构饿了么App（经典再升级）  
+1.问题：  
+$ vue --version  
+bash: vue: command not found  
+原因：环境变量没有进行配置，所以会出现这个问题  
 
-解决办法：
-找到你安装的vue的目录：D:\soft\nodejs\node_global
-把地址加入到系统变量path中
+解决办法：  
+找到你安装的vue的目录：D:\soft\nodejs\node_global  
+把地址加入到系统变量path中  
 
-Windows-如何打开环境变量管理界面
+Windows-如何打开环境变量管理界面  
 方法一：命令行法#
 第一步：WIN+R，打开运行窗口。输入sysdm.cpl，回车。#
 第二步：切换到“高级”页签，点击环境变量，即可进入环境变量管理界面。#
