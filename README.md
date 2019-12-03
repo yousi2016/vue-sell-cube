@@ -1,7 +1,9 @@
 # vue-sell-cube
 Vue.js2.5+cube-ui重构饿了么App（经典再升级）
-# vue-sell-cube
-Vue.js2.5+cube-ui重构饿了么App（经典再升级）
+首先在github新建一个库，然后clone 下到本地  
+添加两个空格即可以换行哦  
+可以查看属性的浏览器兼容性：https://caniuse.com/
+
 1.问题：
 $ vue --version
 bash: vue: command not found
@@ -63,10 +65,18 @@ Windows-如何打开环境变量管理界面
 11. npm run serve 
 
 12. 打开页面：http://localhost:8080/
-              http://172.18.6.57:8080/
+              http://172.18.6.57:8080/    
 
 13. 安装cube-ui
-
-
-
-
+14. 初始化入口html文件public->index.html经过变异构建后会引用main.js,然后进行整个项目的初始化
+15. 初始化入口js文件：src->main.js
+16. 以后重点修改src->components文件夹（放置公用vue组件页面）
+17. browserslistrc：给不同浏览器css添加前缀为了兼容（postcss.config.js里面的插件需要css）
+18. .editorconfig：
+19. .eslintrc：eslint的配置
+20. .gitignore：指定的文件或者目录不提交到git上
+21. babel.config.js：babel配置
+22. package-lock.json：压缩版本的功能版本管理使用的json文件
+23. package.json：项目的各种依赖
+24. 安装cube-ui:https://didi.github.io/cube-ui/#/zh-CN/docs/quick-start
+25. vue add cube-ui
