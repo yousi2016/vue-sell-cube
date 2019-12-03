@@ -83,3 +83,16 @@ Windows-如何打开环境变量管理界面
 14. package.json：项目的各种依赖
 15. 安装cube-ui:https://didi.github.io/cube-ui/#/zh-CN/docs/quick-start
 16. git从github拉取分支更新本地代码:https://blog.csdn.net/s740556472/article/details/80087026
+17. 后编译的好处：可以减少整个构建包的体积
+    ? Use post-compile? (Y/n) y
+    ? Use post-compile? Yes
+    ? Import type (Use arrow keys)
+    ? Import type Partly部分引用
+    ? Custom theme? (Y/n) y
+    ? Custom theme? Yes
+    ? Use rem layout? (y/N) n
+    ? Use rem layout? No
+    ? Use vw layout? (y/N) n
+    ? Use vw layout? No
+18.正式开发项目
+19.api 接口 mock
