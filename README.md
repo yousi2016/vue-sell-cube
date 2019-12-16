@@ -3,7 +3,7 @@ Vue.js2.5+cube-ui重构饿了么App（经典再升级）
 首先在github新建一个库，然后clone 下到本地  
 添加两个空格即可以换行哦  
 可以查看属性的浏览器兼容性：https://caniuse.com/
-
+黄奕老师项目地址：http://ustbhuangyi.com/sell/#/goods
 
 
 
@@ -81,7 +81,7 @@ Windows-如何打开环境变量管理界面
 12. babel.config.js：babel配置
 13. package-lock.json：压缩版本的功能版本管理使用的json文件
 14. package.json：项目的各种依赖
-15. 安装cube-ui:https://didi.github.io/cube-ui/#/zh-CN/docs/quick-start
+15. 安装cube-ui:https://didi.github.io/cube-ui/#/zh-CN/docs/    quick-start
 16. git从github拉取分支更新本地代码:https://blog.csdn.net/s740556472/article/details/80087026
 17. 后编译的好处：可以减少整个构建包的体积
     ? Use post-compile? (Y/n) y
@@ -96,3 +96,10 @@ Windows-如何打开环境变量管理界面
     ? Use vw layout? No
 18.正式开发项目
 19.api 接口 mock
+20.开发header组件
+    下面定义了组件就必须使用否则也会报错哦
+21. axios 封装 & 数据获取
+    将接口给予axios二次封装
+    在src下新建文件夹api->helpers.js
+    安装axios: npm i axios --save
+    api->index.js
