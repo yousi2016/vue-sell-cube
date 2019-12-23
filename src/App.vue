@@ -11,14 +11,19 @@ export default {
   name: 'app',
   data() {
     return {
-      seller:{}
+      seller: {}
     }
   },
-   created(){
-     getSeller().then((seller) => {
-       this.seller = seller
-     })
-  },  
+  created() {
+    this._getSeller()
+  },
+  methods: {
+    _getSeller() {
+      getSeller().then((seller) => {
+        this.seller = seller
+      })
+    }
+  },
   components: {
     VHeader
   }

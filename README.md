@@ -103,3 +103,8 @@ Windows-如何打开环境变量管理界面
     在src下新建文件夹api->helpers.js
     安装axios: npm i axios --save
     api->index.js
+    函数封装拆分
+22.header-detail & star 组件
+    components->header-detail-header-detail.vue
+23. header-detail 交互
+24. 
