@@ -107,4 +107,7 @@ Windows-如何打开环境变量管理界面
 22.header-detail & star 组件
     components->header-detail-header-detail.vue
 23. header-detail 交互
+		如果直接放到body下面也行，不过不利于后期维护，不是动态组件，用户体验不好
+		自定义动态弹窗组件变成api调用方式
+	在src下创建resister.js
 24. 

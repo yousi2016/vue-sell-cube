@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-show="visible" class="header-detail" @touchmove.stop.prevent>
+    <div v-show="visible" class="header-detail">
       <div class="detail-wrapper clear-fix">
         <div class="detail-main">
           <h1 class="name">{{seller.name}}</h1>
@@ -36,13 +36,11 @@
 </template>
 
 <script>
-  import popupMixin from 'common/mixins/popup'
   import Star from 'components/star/star'
   import SupportIco from 'components/support-ico/support-ico'
 
   export default {
     name: 'header-detail',
-    mixins: [popupMixin],
     props: {
       seller: {
         type: Object,
@@ -56,9 +54,13 @@
         visible: false
       }
     },
-    components: {
-      SupportIco,
-      Star
+    methods: {
+      show() {
+        this.visible = true
+      },
+      hide() {
+        this.visible = false
+      }
     },
     components: {
       SupportIco,
@@ -68,7 +70,6 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import "~common/stylus/mixin"
   @import "~common/stylus/variable"
 
   .header-detail

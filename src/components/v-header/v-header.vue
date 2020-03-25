@@ -46,14 +46,14 @@
       }
     },
     methods: {
-      showDetail() {
-        this.headerDetailComp = this.headerDetailComp || this.$createHeaderDetail({
-          $props: {
-            seller: 'seller'
-          }
-        })
-        this.headerDetailComp.show()
-      }
+        showDetail() {
+          this.headerDetailComp = this.headerDetailComp || this.$createHeaderDetail({
+            $props: {
+              seller: 'seller'
+            }
+          })
+          this.headerDetailComp.show()
+        }
     },
     components: {
       SupportIco
@@ -62,7 +62,6 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/mixin"
   @import "~common/stylus/variable"
 
   .header
