@@ -1,77 +1,100 @@
 <template>
   <div class="tab">
-    <cube-tab-bar :showSlider=true
-                  v-model='selectedLable'
-                  :data='tabs'
-                  ref='tabBar'
-                  class='border-bottom-1px'
-    ></cube-tab-bar>
+    <cube-tab-bar
+      :useTransition=false
+      :showSlider=true
+      v-model="selectedLabel"
+      :data="tabs"
+      ref="tabBar"
+      class="border-bottom-1px"
+    >
+    </cube-tab-bar>
     <div class="slide-wrapper">
-      <cube-slide>
+      <cube-slide
         :loop=false
         :auto-play=false
         :show-dots=false
-        :initial-index='index'
-        ref='slide'
+        :initial-index="index"
+        ref="slide"
+        :options="slideOptions"
+        @scroll="onScroll"
+        @change="onChange"
+      >
+        <cube-slide-item v-for="(tab,index) in tabs" :key="index">
+          <component ref="component" :is="tab.component" :data="tab.data"></component>
+        </cube-slide-item>
       </cube-slide>
-      <cube-slide-item>
-        <goods></goods>
-      </cube-slide-item>
-      <cube-slide-item>
-        <ratings></ratings>
-      </cube-slide-item>
-      <cube-slide-item>
-        <seller></seller>
-      </cube-slide-item>
     </div>
   </div>
 </template>
 
 <script>
-import Goods from 'components/goods/goods'
-import Ratings from 'components/ratings/ratings'
-import Seller from 'components/seller/seller'
-export default {
-  name: 'tab',
-  data() {
-    return {
-      index: 0,
-      tabs: [{
-        label: '商品'
-      }, {
-        label: '评价'
-      }, {
-        lable: '商家'
-      }]
-    }
-  },
-  computed: {
-    selectedLabel: {
-      get() {
-        return this.tabs[this.index].label
+  export default {
+    name: 'tab',
+    props: {
+      tabs: {
+        type: Array,
+        default() {
+          return []
+        }
       },
-      set(newVal) {
-        this.index = this.tabs.findIndex((value) => {
-          return value.label === newVal
-        })
+      initialIndex: {
+        type: Number,
+        default: 0
+      }
+    },
+    data() {
+      return {
+        index: this.initialIndex,
+        slideOptions: {
+          listenScroll: true,
+          probeType: 3,
+          directionLockThreshold: 0
+        }
+      }
+    },
+    computed: {
+      selectedLabel: {
+        get() {
+          return this.tabs[this.index].label
+        },
+        set(newVal) {
+          this.index = this.tabs.findIndex((value) => {
+            return value.label === newVal
+          })
+        }
+      }
+    },
+    mounted() {
+      this.onChange(this.index)
+    },
+    methods: {
+      onScroll(pos) {
+        const tabBarWidth = this.$refs.tabBar.$el.clientWidth
+        const slideWidth = this.$refs.slide.slide.scrollerWidth
+        const transform = -pos.x / slideWidth * tabBarWidth
+        this.$refs.tabBar.setSliderTransform(transform)
+      },
+      onChange(current) {
+        this.index = current
+        const instance = this.$refs.component[current]
+        if (instance && instance.fetch) {
+          instance.fetch()
+        }
       }
     }
-  },
-  components: {
-    Seller,
-    Ratings,
-    Goods
   }
-}
 </script>
-<style lang='stylus' scoped>
-  @import '~common/stylus/variable'
+
+<style lang="stylus" scoped>
+  @import "~common/stylus/variable"
+
   .tab
-  >>> .cube-tab
-    padding: 10px 0
     display: flex
     flex-direction: column
     height: 100%
+    >>> .cube-tab
+      padding: 10px 0
     .slide-wrapper
       flex: 1
       overflow: hidden
