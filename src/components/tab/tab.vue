@@ -77,10 +77,8 @@
       },
       onChange(current) {
         this.index = current
-        const instance = this.$refs.component[current]
-        if (instance && instance.fetch) {
-          instance.fetch()
-        }
+        const component = this.$refs.component[current]
+        component.fetch && component/fetch()
       }
     }
   }
