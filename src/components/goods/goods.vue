@@ -43,7 +43,7 @@
 </template>
 
 <script>
-  import {getGoods} from 'api'
+  import { getGoods } from 'api'
   export default {
     name: 'goods',
     props: {
@@ -63,8 +63,8 @@
         }
       }
     },
-    methods:{
-      fetch(){
+    methods: {
+      fetch() {
         getGoods().then((goods) => {
           this.goods = goods
         })
