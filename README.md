@@ -1,4 +1,6 @@
 # vue-sell-cube
+Vue.js 的源码解析
+https://ustbhuangyi.github.io/vue-analysis/
 Vue.js2.5+cube-ui重构饿了么App（经典再升级）
 首先在github新建一个库，然后clone 下到本地  
 添加两个空格即可以换行哦  

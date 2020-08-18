@@ -14,7 +14,7 @@
           :title='good.name'
         >
           <ul>
-          	<li
+           <li
               v-for="food in good.foods"
               :key='food.name'
               class='food-item'
