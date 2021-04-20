@@ -64,7 +64,7 @@ Windows-如何打开环境变量管理界面
 9.确定后，等待Vue-cli完成初始化
 
 1.  cd vue-sell-cube
-
+启动：
 2.  npm run serve 
 
 3.  打开页面：http://localhost:8080/
@@ -77,7 +77,7 @@ Windows-如何打开环境变量管理界面
 8.  browserslistrc：给不同浏览器css添加前缀为了兼容（postcss.config.js里面的插件需要css）
 9.  .editorconfig：
 10. .eslintrc：eslint的配置
-11. .gitignore：指定的文件或者目录不提交到git上
+11. .gitignore：指定的文件或者目录不提交到github上
 12. babel.config.js：babel配置
 13. package-lock.json：压缩版本的功能版本管理使用的json文件
 14. package.json：项目的各种依赖
