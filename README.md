@@ -1,11 +1,9 @@
-# vue-sell-cube
-Vue.js2.5+cube-ui重构饿了么App（经典再升级）  
 # vue-sell-cube  
 Vue.js2.5+cube-ui重构饿了么App（经典再升级）  
 
 首先在github新建一个库，然后clone 下到本地  
 添加两个空格即可以换行哦  
-
+先安装nodejs，然后安装vue-cli
 1.问题：  
 $ vue --version  
 bash: vue: command not found  
@@ -70,7 +68,10 @@ Windows-如何打开环境变量管理界面
               http://172.18.6.57:8080/  
 
 13. 安装cube-ui  
-
-
-
+   vue add cube-ui
+    Use post-compile?  Yes:是否使用后编译（不使用编译后的代码，直接使用源码）好处：减少整个构建包的体积
+   Import type Partly(导入的类型是部分引用还是全局引用)
+   Custom theme? Yes（自定义主题）
+    Use rem layout? No (使用px布局即可)
+    Use vw layout? No
 
