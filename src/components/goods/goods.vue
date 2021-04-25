@@ -78,7 +78,6 @@
   import { getGoods } from 'api'
   import CartControl from 'components/cart-control/cart-control'
   import ShopCart from 'components/shop-cart/shop-cart'
-  import Food from 'components/food/food'
   import SupportIco from 'components/support-ico/support-ico'
   import Bubble from 'components/bubble/bubble'
 
@@ -120,7 +119,7 @@
       barTxts() {
         let ret = []
         this.goods.forEach((good) => {
-          const {type, name, foods} = good
+          const { type, name, foods } = good
           let count = 0
           foods.forEach((food) => {
             count += food.count || 0
@@ -188,8 +187,7 @@
       Bubble,
       SupportIco,
       CartControl,
-      ShopCart,
-      Food
+      ShopCart
     }
   }
 </script>
