@@ -113,5 +113,5 @@ Windows-如何打开环境变量管理界面
 24. tab组件基础实现
     components->tab->tab.vue
 
-5-2 shop-cart 组件
+
     
