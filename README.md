@@ -7,6 +7,9 @@ Vue.js2.5+cube-ui重构饿了么App（经典再升级）
 可以查看属性的浏览器兼容性：https://caniuse.com/
 黄奕老师项目地址：http://ustbhuangyi.com/sell/#/goods
 
+团队开发如何使用git分支？
+https://blog.csdn.net/GeenyH/article/details/83034394
+https://blog.csdn.net/yu923023913/article/details/106487264/?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-0&spm=1001.2101.3001.4242
 1.问题：
 $ vue --version
 bash: vue: command not found
@@ -21,6 +24,7 @@ Windows-如何打开环境变量管理界面
 第一步：WIN+R，打开运行窗口。输入sysdm.cpl，回车。#
 第二步：切换到“高级”页签，点击环境变量，即可进入环境变量管理界面。#
 安装vue：npm install -g @vue/cli
+
 开发步骤：
 
 1.在cmd下运行以下命令创建项目
