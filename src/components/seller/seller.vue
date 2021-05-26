@@ -88,6 +88,7 @@
   import SupportIco from 'components/support-ico/support-ico'
 
   export default {
+    name: 'seller',
     props: {
       data: {
         type: Object,

@@ -10,8 +10,8 @@
         <template slot="bar" slot-scope="props">
           <cube-scroll-nav-bar
             direction="vertical"
-            :txts="barTxts"
             :labels="props.labels"
+            :txts="barTxts"
             :current="props.current"
           >
             <template slot-scope="props">

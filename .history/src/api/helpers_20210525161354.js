@@ -11,8 +11,7 @@ export function get(url) {
       if (errno === ERR_OK) {
         return data
       }
-    }).catch(() => {
-
+    }).catch( () => {
     })
   }
 }

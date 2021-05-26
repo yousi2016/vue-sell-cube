@@ -12,7 +12,6 @@ export function get(url) {
         return data
       }
     }).catch(() => {
-
     })
   }
 }
