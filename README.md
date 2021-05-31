@@ -80,7 +80,7 @@ Windows-如何打开环境变量管理界面
 12. babel.config.js：babel配置
 13. package-lock.json：压缩版本的功能版本管理使用的json文件
 14. package.json：项目的各种依赖
-15. 安装cube-ui:https://didi.github.io/cube-ui/#/zh-CN/docs/    quick-start
+15. 安装cube-ui: https://didi.github.io/cube-ui/#/zh-CN/docs/    quick-start
 16. git从github拉取分支更新本地代码:https://blog.csdn.net/s740556472/article/details/80087026
 17. 后编译的好处：可以减少整个构建包的体积
     ? Use post-compile? (Y/n) y
