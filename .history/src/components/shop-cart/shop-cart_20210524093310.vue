@@ -41,9 +41,9 @@
   import Bubble from 'components/bubble/bubble'
   const BALL_LEN = 10
   const innerClsHook = 'inner-hook'
-  function createBalls() {
+  function createBalls () {
     let ret = []
-    for (let i = 0; i < BALL_LEN; i++) {
+    for (var i = 0; i < BALL_LEN; i++) {
       ret.push({
         show: false
       })
@@ -142,7 +142,7 @@
         e.stopPropagation()
       },
       drop(el) {
-        for (let i = 0; i < this.balls.length; i++) {
+        for (var i = 0; i < this.balls.length; i++) {
           const ball = this.balls[i]
           if (!ball.show) {
             ball.show = true

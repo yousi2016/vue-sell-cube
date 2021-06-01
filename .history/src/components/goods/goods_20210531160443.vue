@@ -109,7 +109,7 @@
         let ret = []
         this.goods.forEach((good) => {
           good.foods.forEach((food) => {
-            if (food.count) {
+            if(food.count) {
               ret.push(food)
             }
           })

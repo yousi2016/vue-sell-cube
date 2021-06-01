@@ -142,7 +142,8 @@
         e.stopPropagation()
       },
       drop(el) {
-        for (let i = 0; i < this.balls.length; i++) {
+        console.log(this.balls)
+        for (var i = 0; i < this.balls.length; i++) {
           const ball = this.balls[i]
           if (!ball.show) {
             ball.show = true

@@ -106,15 +106,7 @@
         return this.data.seller
       },
       selectFoods() {
-        let ret = []
-        this.goods.forEach((good) => {
-          good.foods.forEach((food) => {
-            if (food.count) {
-              ret.push(food)
-            }
-          })
-        })
-        return ret
+       
       },
       barTxts() {
         let ret = []

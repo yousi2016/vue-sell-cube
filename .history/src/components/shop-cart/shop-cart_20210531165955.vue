@@ -21,16 +21,13 @@
         </div>
       </div>
       <div class="ball-container">
-        <div v-for="(ball, index) in balls" :key='index'>
-          <transition
-            @before-enter="beforeDrop"
-            @enter = 'dropping'
-            @after-enter="afterDrop"
-          >
+        <div v-for="(ball, index) in balls" :key="index">
+          <transition>
             <div class="ball" v-show="ball.show">
               <div class="inner inner-hook"></div>
             </div>
           </transition>
+
         </div>
       </div>
     </div>
@@ -142,7 +139,8 @@
         e.stopPropagation()
       },
       drop(el) {
-        for (let i = 0; i < this.balls.length; i++) {
+        console.log(this.balls)
+        for (var i = 0; i < this.balls.length; i++) {
           const ball = this.balls[i]
           if (!ball.show) {
             ball.show = true
