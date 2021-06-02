@@ -7,11 +7,11 @@
         :options="scrollOptions"
         v-if="goods.length"
       >
-        <template slot="bar" slot-scope="props">
+        <template slot='bar' slot-scope="props">
           <cube-scroll-nav-bar
             direction="vertical"
-            :txts="barTxts"
             :labels="props.labels"
+            :txts="barTxts"
             :current="props.current"
           >
             <template slot-scope="props">
@@ -20,7 +20,8 @@
                   v-if="props.txt.type>=1"
                   :size=3
                   :type="props.txt.type"
-                ></support-ico>
+                >
+                </support-ico>
                 <span>{{props.txt.name}}</span>
                 <span class="num" v-if="props.txt.count">
                   <bubble :num="props.txt.count"></bubble>
