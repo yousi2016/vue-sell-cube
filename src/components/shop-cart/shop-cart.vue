@@ -78,6 +78,7 @@
     },
     created() {
       this.dropBalls = []
+      this.listFold = true
     },
     data() {
       return {
@@ -118,19 +119,6 @@
       }
     },
     methods: {
-      toggleList() {
-        if (this.listFold) {
-          if (!this.totalCount) {
-            return
-          }
-          this.listFold = false
-          this._showShopCartList()
-          this._showShopCartSticky()
-        } else {
-          this.listFold = true
-          this._hideShopCartList()
-        }
-      },
       pay(e) {
         if (this.totalPrice < this.minPrice) {
           return
@@ -176,54 +164,37 @@
           el.style.display = 'none'
         }
       },
+      toggleList() {
+        if (this.listFold) {
+          if (!this.totalCount) {
+            return
+          }
+          this.listFold = false
+          console.log(1)
+          this._showShopCartList()
+        } else {
+          this.listFold = true
+          this._hideShopCartList()
+        }
+      },
       _showShopCartList() {
+        console.log(2)
         this.shopCartListComp = this.shopCartListComp || this.$createShopCartList({
           $props: {
             selectFoods: 'selectFoods'
           },
           $events: {
-            leave: () => {
-              this._hideShopCartSticky()
-            },
             hide: () => {
               this.listFold = true
-            },
-            add: (el) => {
-              this.shopCartStickyComp.drop(el)
             }
           }
         })
         this.shopCartListComp.show()
       },
-      _showShopCartSticky() {
-        this.shopCartStickyComp = this.shopCartStickyComp || this.$createShopCartSticky({
-          $props: {
-            selectFoods: 'selectFoods',
-            deliveryPrice: 'deliveryPrice',
-            minPrice: 'minPrice',
-            fold: 'listFold',
-            list: this.shopCartListComp
-          }
-        })
-        this.shopCartStickyComp.show()
-      },
       _hideShopCartList() {
-        const list = this.sticky ? this.$parent.list : this.shopCartListComp
-        list.hide && list.hide()
-      },
-      _hideShopCartSticky() {
-        this.shopCartStickyComp.hide()
+        this.shopCartListComp.hide()
       }
-    },
-    watch: {
-      fold(newVal) {
-        this.listFold = newVal
-      },
-      totalCount(count) {
-        if (!this.fold && count === 0) {
-          this._hideShopCartList()
-        }
-      }
+
     },
     components: {
       Bubble

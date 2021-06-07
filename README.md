@@ -80,7 +80,7 @@ Windows-如何打开环境变量管理界面
 12. babel.config.js：babel配置
 13. package-lock.json：压缩版本的功能版本管理使用的json文件
 14. package.json：项目的各种依赖
-15. 安装cube-ui: https://didi.github.io/cube-ui/#/zh-CN/docs/    quick-start
+15. 安装cube-ui: https://didi.github.io/cube-ui/#/zh-CN/docs/quick-start
 16. git从github拉取分支更新本地代码:https://blog.csdn.net/s740556472/article/details/80087026
 17. 后编译的好处：可以减少整个构建包的体积
     ? Use post-compile? (Y/n) y
@@ -106,12 +106,34 @@ https://github.com/axios/axios
     函数封装拆分
 22.header-detail & star 组件
     components->header-detail-header-detail.vue
-1.  header-detail 交互
+	1.  header-detail 交互
 		如果直接放到body下面也行，不过不利于后期维护，不是动态组件，用户体验不好
 		自定义动态弹窗组件变成api调用方式
 	在src下创建resister.js
-24. tab组件基础实现
+23. tab组件基础实现
     components->tab->tab.vue
+24. 创建shop-cart-list.vue
+	create-api 模块：(https://didi.github.io/cube-ui/#/zh-CN/docs/create-api)
+ this.shopCartListComp = this.shopCartListComp || this.$createShopCartList({
+          $props: {
+            selectFoods: 'selectFoods'
+          },
+          $events: {
+            leave: () => {
+              this._hideShopCartSticky()
+            },
+            hide: () => {
+              this.listFold = true
+            },
+            add: (el) => {
+              this.shopCartStickyComp.drop(el)
+            }
+          }
+        })
+
+	
+	
+
 
 
     
