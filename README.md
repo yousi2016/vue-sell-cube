@@ -1,6 +1,6 @@
 
 可以查看属性的浏览器兼容性：https://caniuse.com/
-黄奕老师项目地址：http://ustbhuangyi.com/sell
+项目地址：http://ustbhuangyi.com/sell
 
 团队开发如何使用git分支？
 https://blog.csdn.net/GeenyH/article/details/83034394
