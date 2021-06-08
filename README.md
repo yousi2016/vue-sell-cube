@@ -130,6 +130,10 @@ https://github.com/axios/axios
             }
           }
         })
+25.创建一个购物车组件的副本shop-cart-sticky.vue作为一个API组件直接调用即可
+shop-cart-sticky.vue是shop-cart.vue的父级
+ shop-cart.vue有shop-cart-list.vue
+ shop-cart-sticky没有shop-cart-list.vue,所以要将shop-cart-list.vue传给它
 
 	
 	

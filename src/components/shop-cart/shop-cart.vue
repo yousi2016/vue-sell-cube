@@ -78,11 +78,11 @@
     },
     created() {
       this.dropBalls = []
-      this.listFold = true
     },
     data() {
       return {
-        balls: createBalls()
+        balls: createBalls(),
+        listFold: this.fold
       }
     },
     computed: {
@@ -172,6 +172,7 @@
           this.listFold = false
           console.log(1)
           this._showShopCartList()
+          this._showShopCartSticky()
         } else {
           this.listFold = true
           this._hideShopCartList()
@@ -186,15 +187,44 @@
           $events: {
             hide: () => {
               this.listFold = true
+            },
+            leave: () => {
+              this._hideShopCartSticky()
             }
           }
         })
         this.shopCartListComp.show()
       },
+      _showShopCartSticky() {
+        this.shopCartStickyComp = this.shopCartStickyComp || this.$createShopCartSticky({
+          $props: {
+            selectFoods: 'selectFoods',
+            deliveryPrice: 'deliveryPrice',
+            minPrice: 'minPrice',
+            fold: 'listFold',
+            list: this.shopCartListComp
+          },
+          $events: {
+            hide: () => {
+              this.listFold = true
+            }
+          }
+        })
+        this.shopCartStickyComp.show()
+      },
       _hideShopCartList() {
-        this.shopCartListComp.hide()
+        const comp = this.sticky ? this.$parent.list : this.shopCartListComp
+        comp.hide && comp.hide()
+      },
+      _hideShopCartSticky() {
+        this.shopCartStickyComp.hide()
       }
 
+    },
+    watch: {
+      fold(newVal) {
+        this.listFold = newVal
+      }
     },
     components: {
       Bubble
