@@ -119,16 +119,6 @@
       }
     },
     methods: {
-      pay(e) {
-        if (this.totalPrice < this.minPrice) {
-          return
-        }
-        this.$createDialog({
-          title: '支付',
-          content: `您需要支付${this.totalPrice}元`
-        }).show()
-        e.stopPropagation()
-      },
       drop(el) {
         for (let i = 0; i < this.balls.length; i++) {
           const ball = this.balls[i]
@@ -170,7 +160,6 @@
             return
           }
           this.listFold = false
-          console.log(1)
           this._showShopCartList()
           this._showShopCartSticky()
         } else {
@@ -178,8 +167,18 @@
           this._hideShopCartList()
         }
       },
+      pay(e) {
+        if (this.totalPrice < this.minPrice) {
+          return
+        }
+        this.dialogComp = this.$createDialog({
+          title: '支付',
+          content: `支付${this.totalPrice}元`
+        })
+        this.dialogComp.show()
+        e.stopPropagation()
+      },
       _showShopCartList() {
-        console.log(2)
         this.shopCartListComp = this.shopCartListComp || this.$createShopCartList({
           $props: {
             selectFoods: 'selectFoods'
@@ -190,6 +189,9 @@
             },
             leave: () => {
               this._hideShopCartSticky()
+            },
+            add: (el) => {
+              this.shopCartStickyComp.drop(el)
             }
           }
         })
@@ -224,6 +226,11 @@
     watch: {
       fold(newVal) {
         this.listFold = newVal
+      },
+      totalCount(newVal) {
+        if (!this.listFold && !newVal) {
+          this._hideShopCartList()
+        }
       }
     },
     components: {

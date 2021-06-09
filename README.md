@@ -134,6 +134,9 @@ https://github.com/axios/axios
 shop-cart-sticky.vue是shop-cart.vue的父级
  shop-cart.vue有shop-cart-list.vue
  shop-cart-sticky没有shop-cart-list.vue,所以要将shop-cart-list.vue传给它
+26.购物车列表功能完善
+点击'+'小球不飞的原因：shop-cart-sticky.vue覆盖了，得在shop-cart-sticky.vue里面重新执行drop方法
+
 
 	
 	
