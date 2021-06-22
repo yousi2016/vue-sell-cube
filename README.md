@@ -137,6 +137,12 @@ shop-cart-sticky.vue是shop-cart.vue的父级
 26.购物车列表功能完善
 点击'+'小球不飞的原因：shop-cart-sticky.vue覆盖了，得在shop-cart-sticky.vue里面重新执行drop方法
 27.弹层类组件优化
+28.商品详情页骨架开发
+	如果子级有fixed父级有transform那就会导致出问题，解决办法使用createapi模块让food组件添加到body下
+29.商品详情页评价列表开发
+	时间插件：https://github.com/moment/moment
+30.新建rating-select.vue组件
+	
 	
 
 
