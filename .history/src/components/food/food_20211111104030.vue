@@ -1,10 +1,9 @@
 <template>
   <transition
     name="move"
-    @after-leave='afterLeave'
   >
     <div class="food" v-show="visible">
-      <cube-scroll ref="scroll" :data="computedRatings">
+      <cube-scroll ref="scroll">
         <div class="food-content">
           <div class="image-header">
             <img :src="food.image">

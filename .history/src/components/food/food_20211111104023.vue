@@ -1,10 +1,9 @@
 <template>
   <transition
     name="move"
-    @after-leave='afterLeave'
   >
     <div class="food" v-show="visible">
-      <cube-scroll ref="scroll" :data="computedRatings">
+      <cube-scroll ref="scroll">
         <div class="food-content">
           <div class="image-header">
             <img :src="food.image">
@@ -50,7 +49,7 @@
             <div class="rating-wrapper">
               <ul v-show="computedRatings && computedRatings.length">
                 <li
-                  v-for="(rating,index) in computedRatings"
+                  v-for="(rating,index) in computedcomputedRatings"
                   class="rating-item border-bottom-1px"
                   :key="index"
                 >

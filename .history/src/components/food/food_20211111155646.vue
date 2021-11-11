@@ -1,7 +1,6 @@
 <template>
   <transition
     name="move"
-    @after-leave='afterLeave'
   >
     <div class="food" v-show="visible">
       <cube-scroll ref="scroll" :data="computedRatings">
