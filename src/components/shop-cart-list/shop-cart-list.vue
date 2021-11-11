@@ -42,11 +42,13 @@
 
 <script>
   import CartControl from 'components/cart-control/cart-control'
-  const EVENT_HIDE = 'hide'
+  import popupMixin from 'common/mixins/popup'
   const EVENT_LEAVE = 'leave'
   const EVENT_END = 'add'
+  const EVENT_SHOW = 'show'
   export default {
     name: 'shop-cart-list',
+    mixins: [popupMixin],
     props: {
       selectFoods: {
         type: Array,
@@ -55,22 +57,14 @@
         }
       }
     },
-    data() {
-      return {
-        visible: false
-      }
-    },
-    methods: {
-      show() {
-        this.visible = true
+    created() {
+      this.$on(EVENT_SHOW, () => {
         this.$nextTick(() => {
           this.$refs.listContent.refresh()
         })
-      },
-      hide() {
-        this.visible = false
-        this.$emit(EVENT_HIDE)
-      },
+      })
+    },
+    methods: {
       maskClick() {
         this.hide()
       },
@@ -81,10 +75,9 @@
         this.$emit(EVENT_END, target)
       },
       empty() {
-        console.log(8)
-        this.dialogComp = this.dialogComp || this.$createDialog({
+        this.$createDialog({
           type: 'confirm',
-          title: '清空购物车',
+          title: '清空购物车吗？',
           content: '确认清空吗？',
           $events: {
             confirm: () => {
@@ -94,8 +87,7 @@
               this.hide()
             }
           }
-        })
-        this.dialogComp.show()
+        }).show()
       }
     },
     components: {

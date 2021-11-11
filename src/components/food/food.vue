@@ -1,7 +1,6 @@
 <template>
   <transition
     name="move"
-    @after-leave="afterLeave"
   >
     <div class="food" v-show="visible">
       <cube-scroll ref="scroll">
@@ -12,7 +11,7 @@
               <i class="icon-arrow_lift"></i>
             </div>
           </div>
-          <div class="content">
+          <div class="content" ref='listContent'>
             <h1 class="title">{{food.name}}</h1>
             <div class="detail">
               <span class="sell-count">月售{{food.sellCount}}份</span>
@@ -22,10 +21,10 @@
               <span class="now">￥{{food.price}}</span><span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
             </div>
             <div class="cart-control-wrapper">
-              <cart-control @add="addFood" :food="food"></cart-control>
+              <cart-control  :food="food"></cart-control>
             </div>
             <transition name="fade">
-              <div @click="addFirst" class="buy" v-show="!food.count">
+              <div  class="buy" v-show="!food.count">
                 加入购物车
               </div>
             </transition>
@@ -39,15 +38,16 @@
           <div class="rating">
             <h1 class="title">商品评价</h1>
             <rating-select
-              @select="onSelect"
-              @toggle="onToggle"
-              :selectType="selectType"
-              :onlyContent="onlyContent"
-              :desc="desc"
-              :ratings="ratings">
+              :ratings = 'ratings'
+              :onlyContent = 'onlyContent'
+              :selectType = 'selectType'
+              :desc = 'desc'
+              @select = 'onSelect'
+              @toggle = 'onToggle'
+            >
             </rating-select>
             <div class="rating-wrapper">
-              <ul v-show="computedRatings && computedRatings.length">
+              <ul v-show="ratings && ratings.length">
                 <li
                   v-for="(rating,index) in computedRatings"
                   class="rating-item border-bottom-1px"
@@ -63,9 +63,10 @@
                   </p>
                 </li>
               </ul>
-              <div class="no-rating" v-show="!computedRatings || !computedRatings.length">暂无评价</div>
+              <div class="no-rating" v-show="!ratings || !ratings.length">暂无评价</div>
             </div>
           </div>
+
         </div>
       </cube-scroll>
     </div>
@@ -73,20 +74,20 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import moment from 'moment'
-  import CartControl from 'components/cart-control/cart-control'
-  import RatingSelect from 'components/rating-select/rating-select'
 
-  import ratingMixin from 'common/mixins/rating'
   import popupMixin from 'common/mixins/popup'
+  import Split from 'components/split/split'
+  import CartControl from 'components/cart-control/cart-control'
+  import RatingSelect from 'components/rating-select/rating-select.vue'
+  import moment from 'moment'
 
   const EVENT_SHOW = 'show'
-  const EVENT_ADD = 'add'
   const EVENT_LEAVE = 'leave'
-
+  const EVENT_ADD = 'add'
+  const ALL = 2
   export default {
     name: 'food',
-    mixins: [ratingMixin, popupMixin],
+    mixins: [popupMixin],
     props: {
       food: {
         type: Object
@@ -94,16 +95,30 @@
     },
     data() {
       return {
+        onlyContent: true,
+        selectType: ALL,
         desc: {
-          all: '全部',
-          positive: '推荐',
-          negative: '吐槽'
+            all: '全部',
+            positive: '推荐',
+            negative: '吐槽'
         }
       }
     },
     computed: {
       ratings() {
         return this.food.ratings
+      },
+      computedRatings() {
+        let ret = []
+        this.ratings.forEach((rating) => {
+          if (this.onlyContent && !rating.text) {
+            return
+          }
+          if (this.selectType === ALL || this.selectType === rating.rateType) {
+            ret.push(rating)
+          }
+        })
+        return ret
       }
     },
     created() {
@@ -126,9 +141,17 @@
       },
       format(time) {
         return moment(time).format('YYYY-MM-DD hh:mm')
+      },
+      onSelect(type) {
+        console.log(type)
+        this.selectType = type
+      },
+      onToggle() {
+        this.onlyContent = !this.onlyContent
       }
     },
     components: {
+      Split,
       CartControl,
       RatingSelect
     }
@@ -171,7 +194,6 @@
           padding: 10px
           font-size: $fontsize-large-xx
           color: $color-white
-
     .content
       position: relative
       padding: 18px
@@ -280,7 +302,6 @@
               color: $color-blue
             .icon-thumb_down
               color: $color-light-grey
-
         .no-rating
           padding: 16px 0
           font-size: $fontsize-small
