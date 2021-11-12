@@ -13,6 +13,7 @@
     "cube-ui": "~1.12.15",
     "good-storage": "^1.1.1",
     "moment": "^2.29.1",
+    "query-string": "^4.3.4",
     "vue": "^2.6.10"
   },
   "devDependencies": {

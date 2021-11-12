@@ -86,7 +86,7 @@
   import Star from 'components/star/star'
   import Split from 'components/split/split'
   import SupportIco from 'components/support-ico/support-ico'
-  const KEY = 'favorite'
+  const key = 'favorite'
   export default {
     name: 'seller',
     props: {

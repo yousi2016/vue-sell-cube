@@ -86,7 +86,7 @@
   import Star from 'components/star/star'
   import Split from 'components/split/split'
   import SupportIco from 'components/support-ico/support-ico'
-  const KEY = 'favorite'
+
   export default {
     name: 'seller',
     props: {
@@ -120,12 +120,12 @@
       }
     },
     created() {
-      this.favorite = loadFromLocal(this.seller.id, KEY, false)
+      this.favorite = loadFromLocal(this.seller.id, 'favorite', false)
     },
     methods: {
       toggleFavorite() {
         this.favorite = !this.favorite
-        saveToLocal(this.seller.id, KEY, this.favorite)
+        saveToLocal(this.seller.id, 'favorite', this.favorite)
       }
     },
     components: {
